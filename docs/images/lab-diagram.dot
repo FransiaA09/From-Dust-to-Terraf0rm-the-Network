@@ -1,0 +1,41 @@
+digraph lab {
+  graph [rankdir=TB, fontname="DejaVu Sans", fontsize=12, pad=0.35, nodesep=0.9, ranksep=1.0,
+         bgcolor="white", labelloc=b, labeljust=l,
+         label=<<font point-size="10" color="#666666">Some VMs were attached to a NAT network temporarily for installation, updates, and the RSAT download.<br align="left"/>Otherwise the lab runs on the isolated internal network only.<br align="left"/></font>>];
+  node  [shape=plain, fontname="DejaVu Sans", fontsize=12];
+  edge  [fontname="DejaVu Sans", fontsize=11, color="#444444", penwidth=1.4];
+
+  subgraph cluster_host {
+    label=<<b>Host machine</b>  ·  Linux Mint  ·  Oracle VirtualBox  ·  16 GB RAM>;
+    labeljust=l; labelloc=t; fontsize=13; style="rounded"; color="#999999"; margin=24;
+
+    subgraph cluster_net {
+      label=<<b>VirtualBox Internal Network "LAB-INT"</b>  ·  10.10.10.0/24  ·  isolated, no internet>;
+      labeljust=l; labelloc=t; fontsize=12; style="rounded,filled"; fillcolor="#F2F7FC"; color="#4A7FB5"; margin=24;
+
+      dc [label=<
+        <table border="0" cellborder="1" cellspacing="0" cellpadding="7" color="#2F5D8C">
+          <tr><td bgcolor="#2F5D8C"><font color="white"><b>win2k22-DC01</b></font></td></tr>
+          <tr><td align="left" bgcolor="white">Domain controller<br align="left"/>Windows Server 2022 (Desktop Experience)<br align="left"/>10.10.10.10 (static)<br align="left"/>AD DS · DNS · DHCP<br align="left"/>Domain: lab.local<br align="left"/></td></tr>
+        </table>>];
+
+      client [label=<
+        <table border="0" cellborder="1" cellspacing="0" cellpadding="7" color="#3B7D4F">
+          <tr><td bgcolor="#3B7D4F"><font color="white"><b>win10-client01</b></font></td></tr>
+          <tr><td align="left" bgcolor="white">Employee workstation (ticket target)<br align="left"/>Windows 10 Pro, domain-joined<br align="left"/>DHCP range 10.10.10.100 to 200<br align="left"/>Users: dcohen, ylevi<br align="left"/></td></tr>
+        </table>>];
+
+      tech [label=<
+        <table border="0" cellborder="1" cellspacing="0" cellpadding="7" color="#8A5A9E">
+          <tr><td bgcolor="#8A5A9E"><font color="white"><b>win10-tech01</b></font></td></tr>
+          <tr><td align="left" bgcolor="white">Technician workstation<br align="left"/>Windows 10 Pro, domain-joined, RSAT<br align="left"/>DHCP (10.10.10.101 observed)<br align="left"/>Technician account: otech<br align="left"/></td></tr>
+        </table>>];
+
+      {rank=same; client; tech;}
+    }
+  }
+
+  dc -> client [dir=back, label="  DHCP lease, DNS,\l  domain sign-in\l"];
+  dc -> tech   [dir=back, label="  AD admin tools\l  (RSAT)\l"];
+  tech -> client [label=" RDP "];
+}

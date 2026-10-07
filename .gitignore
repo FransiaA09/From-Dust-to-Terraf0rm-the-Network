@@ -1,0 +1,17 @@
+# Virtual machine disks and images: never commit these
+*.vdi
+*.vmdk
+*.vhd
+*.vhdx
+*.iso
+*.ova
+*.ovf
+*.vbox
+*.vbox-prev
+*.sav
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.swp
+.claude 
