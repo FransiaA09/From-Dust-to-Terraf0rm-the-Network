@@ -1,13 +1,6 @@
 # My Home Lab
-
-A home lab I use to practice real work, and to document each problem the way I would in a ticket.
-
-## Why I built this
-
-I learn best by doing. So I started by building a Windows domain at home, broke it in realistic ways, and then worked out how to fix it from a technician's seat. I wrote things down as I went: the ticket, what I saw, how I found the cause, what I changed, and what I did not manage to verify. Some things went wrong along the way, and those parts are in here too, because that's where I learned the most. This lab is meant to grow with me over the years, into new areas.
-
+I learn best by doing. So I started by building a Windows domain at home, broke it in realistic ways, and then worked out how to fix it. Some things went wrong along the way, and those parts are in here too, because that's where I learned the most. This lab is meant to grow with me over the years, into new areas.
 ## About me
-
 Hi! I'm learning IT hands-on, one lab at a time. This repository is my notebook: a small domain I built myself, the things I broke on purpose, and what I found out when I fixed them. I'll keep adding to it as I try new things.
 
 ## The lab today
