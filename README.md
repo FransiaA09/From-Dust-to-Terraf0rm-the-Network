@@ -1,29 +1,41 @@
-# My Home Lab
-I learn best by doing. So I started by building a Windows domain at home, broke it in realistic ways, and then worked out how to fix it. Some things went wrong along the way, and those parts are in here too, because that's where I learned the most. This lab is meant to grow with me over the years, into new areas.
-## About me
-Hi! I'm learning IT hands-on, one lab at a time. This repository is my notebook: a small domain I built myself, the things I broke on purpose, and what I found out when I fixed them. I'll keep adding to it as I try new things.
+# Network Security Home Lab
+
+A home lab where I put a firewall in front of an Active Directory network, split it into security zones, and then attack and defend it. I document every milestone: what I built, what broke, how I fixed it, and what I learned. I'm aiming for a junior network security role, so the focus is hands-on practice rather than theory.
 
 ## The lab today
 
-![Lab diagram: a domain controller, an employee workstation, and a technician workstation on an isolated VirtualBox network](docs/images/lab-diagram.png)
+![Lab topology: an OPNsense firewall connecting a WAN with a Kali machine to three zones: SERVERS (domain controller), USERS (employee workstation) and ADMIN (technician workstation)](network-security/images/m1-topology.png)
 
-Three virtual machines on an isolated network: a domain controller (Active Directory, DNS, DHCP), an employee workstation where the tickets happen, and a technician workstation used to work them. This diagram grows as the lab does. More detail is on the [infrastructure](docs/infrastructure.md) page.
+An OPNsense firewall sits between three internal zones (SERVERS, USERS, ADMIN) and a WAN where a Kali machine sits for attack scenarios. The domain controller (Active Directory, DNS, DHCP) is in SERVERS. Workstations in USERS and ADMIN get their addresses from it through a DHCP relay on the firewall. The lab builds on an earlier Windows domain lab of mine, reused as the SERVERS zone.
 
-## Areas
+## Goal
 
-Pick an area. Each area has its own page that groups its scenarios by topic, and every scenario has a full write-up with screenshots.
+1. Segment the network into SERVERS, USERS and ADMIN zones behind an OPNsense firewall.
+2. Attack the unfiltered network from Kali to see what it exposes, as a baseline.
+3. Apply default-deny firewall rules with explicit Active Directory allow rules, and harden the domain.
+4. Add one free, open-source detection system.
+5. Repeat the attacks and compare before and after, including privilege-escalation attempts.
+6. Stretch goal: apply Zero Trust principles.
 
-| Area | What's inside | Scenarios |
+## Milestones
+
+| Milestone | What it covers | Status |
 |---|---|---|
-| [Windows domain](windows-domain/README.md) | Active Directory, DHCP, DNS, Group Policy, file permissions, delegated administration | 7 |
+| [M1: Segmented network](network-security/milestones/M1-segmented-network.md) | OPNsense firewall, three zones, routing, DHCP relay, three failures and fixes | Done |
+| M2: Baseline | Attack the network with allow-all rules and record what succeeds | Planned |
+| M3: Firewall policy | Default-deny, Active Directory allow rules, management interface from ADMIN only | Planned |
+| M4: AD/DC hardening | Password and lockout policy, admin account separation, legacy protocols off, audit logging | Planned |
+| M5: Detection | One open-source detection system | Planned |
+| M6: Attack and defend | Repeat the M2 attacks plus privilege escalation, then compare before and after | Planned |
+| M7: Zero Trust | Least privilege per user and application, no implicit trust between zones | Planned |
+| M8: Packaging | Final README, diagram and lessons learned | Planned |
 
-### Planned
+Planned milestones are not started. They will be linked here when they have content.
 
-These areas are not started yet. They will be added here as I work on them.
+## Tools
 
-- Networking: network configuration
-- Cloud: cloud configuration
-- Security operations: investigating cyber incidents
-- Zero Trust: deploying ZTNA
-- AI
-- ...and more
+OPNsense, Active Directory (Windows Server 2022), Windows 10, Kali Linux, Oracle VirtualBox.
+
+## Scope
+
+Everything runs inside VirtualBox, isolated from my home network. All attack and defense testing targets only machines inside this lab.
