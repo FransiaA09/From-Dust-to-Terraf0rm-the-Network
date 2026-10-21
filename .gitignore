@@ -15,3 +15,18 @@
 Thumbs.db
 *.swp
 .claude 
+
+# Secrets and credentials: never commit these
+*.pem
+*.key
+*.pfx
+*.p12
+*.ppk
+*.crt
+*.cer
+*.kdbx
+.env
+.env.*
+id_rsa*
+id_ed25519*
+*.har
