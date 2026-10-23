@@ -25,6 +25,41 @@ Attacks were executed in a pre-defined A1→A7 testing order (network scan → a
 | A6 | Kerberoasting | Inside, as low-privilege user | Full success. SPN registered on a purpose-built service account; TGS ticket requested and captured by an ordinary domain user with no special rights (`impacket-GetUserSPNs`). Password cracked offline with John the Ripper using a small targeted wordlist (instant). Full `rockyou.txt` (14M+ entries, 2009-era corpus) found nothing — the password's current-year pattern couldn't exist in a 17-year-old leak list, a useful demonstration of targeted vs. generic wordlists. hashcat could not complete on this VM (OpenCL/`pocl` memory allocation limitation, unrelated to wordlist size or technique). |
 | A7 | AD enumeration | Inside, as low-privilege user | Full domain enumeration achieved with a single low-privilege credential: complete user list with logon/password timestamps (including stale, never-logged-in accounts), full AD group structure with membership counts, and a direct, surgical confirmation via raw LDAP query that exactly **one** account (`Administrator`) holds Domain Admin rights. |
 
+## Evidence (Screenshots)
+
+Screenshots below are cropped to VM content only (chat/host desktop removed) and redacted — plaintext passwords, MAC addresses, and the AD computer object's SID/GUID are blacked out. Domain usernames are left visible since they're already named in the tables above.
+
+### A3 — Password spray
+
+![nxc SMB share enumeration against the DC](../images/M2/A3-nxc-smb-enum-dc.png)
+*`nxc smb` authenticating as `TalA` and enumerating shares on `DC01` — password redacted.*
+
+### A5 — Lateral movement
+
+![First xfreerdp attempt against the DC, pre-fix](../images/M2/A5-rdp-xfreerdp-first-attempt.png)
+*Initial `xfreerdp` attempt to `10.10.10.10` — logs a LOGON_WARNING; password redacted.*
+
+![nxc + xfreerdp succeeding against SERVERS](../images/M2/A5-nxc-xfreerdp-servers-success.png)
+*SMB share access confirmed, then `xfreerdp` session negotiation proceeding against the DC.*
+
+![RDP session open on the DC desktop](../images/M2/A5-rdp-session-open-desktop.png)
+*Full RDP session reached the Windows desktop — SERVERS-zone lateral movement confirmed.*
+
+![xfreerdp connection to ADMIN zone failing outright](../images/M2/A5-nxc-xfreerdp-admin-connection-failed.png)
+*`Couldn't get socket ip address` / `Failed to connect` — a connection failure, not an auth denial, pointing at the host being unreachable rather than a credentials problem. Investigating this surfaced two latent issues: `win10-tech01`'s real Windows hostname was `DESKTOP-JBUUML6` (no matching AD object existed under the expected name), and it had no inbound firewall exceptions enabled by default. Both are detailed in "Failures Found and Fixed" below rather than screenshot-by-screenshot here.*
+
+![hostname reveals the real computer name](../images/M2/A5-tech01-hostname-desktop-jbuuml6.png)
+*`hostname` returns `DESKTOP-JBUUML6` — the VM's real Windows identity, the root cause behind the connection failure above.*
+
+![ipconfig, firewall-fix context, and a failed rename attempt](../images/M2/A5-tech01-ipconfig-firewall-fix-rename-fail.png)
+*Full `ipconfig /all` (MAC redacted) followed by `Rename-Computer -DomainCredential LAB\Administrator` failing with Access Denied.*
+
+![Get-ADComputer finally resolving WIN10-TECH01](../images/M2/A5-dc-get-adcomputer-win10tech01-found.png)
+*After the rename succeeded, `Get-ADComputer -Identity win10-tech01` resolves correctly from the DC (SID/ObjectGUID redacted).*
+
+![Final ipconfig confirming the renamed, correctly-addressed host](../images/M2/A5-tech01-ipconfig-post-rename.png)
+*`hostname` now returns `win10-tech01`; `ipconfig /all` confirms `10.10.30.100` (MAC redacted) — the ADMIN-zone target is finally in the expected state for the SMB evidence captured above.*
+
 ## MITRE ATT&CK Mapping
 
 | # | Attack | Technique | ID |
