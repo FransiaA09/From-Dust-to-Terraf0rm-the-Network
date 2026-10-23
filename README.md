@@ -4,6 +4,8 @@ A home lab where I put a firewall in front of an Active Directory network, split
 
 ## The lab today
 
+*Last updated: 2026/10/23*
+
 ![Lab topology: an OPNsense firewall connecting a WAN with a Kali machine to three zones: SERVERS (domain controller), USERS (employee workstation) and ADMIN (technician workstation)](network-security/images/m1-topology.png)
 
 An OPNsense firewall sits between three internal zones (SERVERS, USERS, ADMIN) and a WAN where a Kali machine sits for attack scenarios. The domain controller (Active Directory, DNS, DHCP) is in SERVERS. Workstations in USERS and ADMIN get their addresses from it through a DHCP relay on the firewall. The lab builds on an earlier Windows domain lab of mine, reused as the SERVERS zone.
@@ -22,7 +24,7 @@ An OPNsense firewall sits between three internal zones (SERVERS, USERS, ADMIN) a
 | Milestone | What it covers | Status |
 |---|---|---|
 | [M1: Segmented network](network-security/milestones/M1-segmented-network.md) | OPNsense firewall, three zones, routing, DHCP relay, three failures and fixes | Done |
-| M2: Baseline | Attack the network with allow-all rules and record what succeeds | Planned |
+| [M2: Baseline](network-security/milestones/M2-baseline-attacks.md) | Attack the network with allow-all rules and record what succeeds | Done |
 | M3: Firewall policy | Default-deny, Active Directory allow rules, management interface from ADMIN only | Planned |
 | M4: AD/DC hardening | Password and lockout policy, admin account separation, legacy protocols off, audit logging | Planned |
 | M5: Detection | One open-source detection system | Planned |

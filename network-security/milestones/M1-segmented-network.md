@@ -56,4 +56,4 @@ This lab runs entirely inside VirtualBox and is isolated from my home network: t
 
 ---
 
-[← Back to the Network security page](../README.md)
+[Back to the Network security page](../README.md) · [Next: Milestone 2: Baseline Attack Pass →](M2-baseline-attacks.md)

@@ -18,7 +18,7 @@ The goal of this area is to take the Windows domain lab and defend it like a sma
 | Milestone | What it covers | Status |
 |---|---|---|
 | [M1: Segmented network](milestones/M1-segmented-network.md) | OPNsense firewall, three zones, routing, DHCP relay, three failures and fixes | Done |
-| M2: Baseline | Attack the network with allow-all rules and record what succeeds | Planned |
+| [M2: Baseline](milestones/M2-baseline-attacks.md) | Attack the network with allow-all rules and record what succeeds | Done |
 | M3: Firewall policy | Default-deny, Active Directory allow rules, management interface from ADMIN only | Planned |
 | M4: AD/DC hardening | Password and lockout policy, admin account separation, legacy protocols off, audit logging | Planned |
 | M5: Detection | One open-source detection system | Planned |
