@@ -1,6 +1,16 @@
-# Network Security Home Lab
+# From Dust to Terraf0rm the Network
 
-A home lab where I put a firewall in front of an Active Directory network, split it into security zones, and then attack and defend it. I document every milestone: what I built, what broke, how I fixed it, and what I learned. I'm aiming for a junior network security role, so the focus is hands-on practice rather than theory.
+A home lab where I put a firewall in front of an Active Directory network, split it into security zones, and then attack and defend it. I build it myself, break it on purpose, and document every milestone honestly: what worked, what didn't, how I fixed it, and what I learned along the way.
+
+Everything here runs in an isolated virtual network I built myself — see [Scope](#scope) below.
+
+## At a glance
+
+| | |
+|---|---|
+| **Stack** | OPNsense, Active Directory (Windows Server 2022), Windows 10, Kali Linux, Oracle VirtualBox |
+| **Progress** | Milestone 2 of 8 done (segmentation, baseline attack pass) |
+| **Format** | One write-up per milestone: what was built, a test matrix, failures and fixes, and what I learned |
 
 ## The lab today
 
@@ -33,10 +43,6 @@ An OPNsense firewall sits between three internal zones (SERVERS, USERS, ADMIN) a
 | M8: Packaging | Final README, diagram and lessons learned | Planned |
 
 Planned milestones are not started. They will be linked here when they have content.
-
-## Tools
-
-OPNsense, Active Directory (Windows Server 2022), Windows 10, Kali Linux, Oracle VirtualBox.
 
 ## Scope
 
