@@ -30,3 +30,6 @@ Thumbs.db
 id_rsa*
 id_ed25519*
 *.har
+
+# Internal security-review notes: never commit these, local record only
+docs/security-review-*.md
