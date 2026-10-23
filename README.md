@@ -1,77 +1,101 @@
 <div align="center">
 
-# From Dust to Terraf0rm the Network
+# 🛡️ From Dust to Terraf0rm the Network
 
-**A firewall in front of an Active Directory network, split into security zones — then attacked and defended, one milestone at a time.**
+**Home-lab network security build · segment → attack → harden → detect → repeat**
 
-![Stack](https://img.shields.io/badge/stack-OPNsense_+_Active_Directory_+_Kali-1f6feb)
-![Environment](https://img.shields.io/badge/environment-isolated_VirtualBox_lab-6f42c1)
-![Progress](https://img.shields.io/badge/progress-2_of_8_milestones-2da44e)
-![Updated](https://img.shields.io/badge/updated-2026--10--23-lightgrey)
+![Stack](https://img.shields.io/badge/OPNsense-firewall-informational?style=flat-square&logo=opnsense&logoColor=white&color=2A5ADA)
+![AD](https://img.shields.io/badge/Active%20Directory-Windows%20Server%202022-informational?style=flat-square&logo=windows&logoColor=white&color=0078D4)
+![Kali](https://img.shields.io/badge/Kali%20Linux-attacker%20box-informational?style=flat-square&logo=kalilinux&logoColor=white&color=557C94)
+![VirtualBox](https://img.shields.io/badge/Oracle%20VirtualBox-isolated%20lab-informational?style=flat-square&logo=virtualbox&logoColor=white&color=183A61)
+
+![Progress](https://img.shields.io/badge/progress-2%20of%208%20milestones-2da44e?style=flat-square)
+![Scope](https://img.shields.io/badge/scope-isolated%20virtual%20network-6f42c1?style=flat-square)
+![Updated](https://img.shields.io/badge/updated-2026--10--23-lightgrey?style=flat-square)
+
+**[📋 Milestones](#-milestones) · [🗺️ Topology](#-the-lab-today) · [⚔️ Latest attack pass](network-security/milestones/M2-baseline-attacks.md) · [🔒 Scope & safety](#-scope--safety)**
 
 </div>
 
 ---
 
+## 👋 What this is
+
+I put a firewall in front of an Active Directory network, split it into security zones, and now I attack and defend it — on purpose, in public. Every milestone gets its own write-up: what was built, a test matrix, what broke, how I fixed it, and what I actually learned.
+
 > [!NOTE]
-> This is a build log, not a tutorial. I build each stage myself, break it on purpose, and write down what worked, what didn't, how I fixed it, and what I learned — mistakes included.
+> This is a build log, not a tutorial. Mistakes are left in on purpose — the failures are as much the point as the wins.
 
-## The idea in one line
+## 📊 At a glance
 
-**Build → Break → Fix → Detect → Re-test → Zero Trust**
-
-Stand up a realistic, segmented enterprise network from scratch, attack it from a baseline to see what it exposes, then harden and monitor it — proving each change actually worked, before and after.
-
-## At a glance
-
-|  |  |
+| | |
 |---|---|
-| **Stack** | OPNsense · Active Directory (Windows Server 2022) · Windows 10 · Kali Linux · Oracle VirtualBox |
-| **Shape** | One firewall, three internal zones — SERVERS / USERS / ADMIN — and a WAN where the attacker sits |
-| **Progress** | `██████░░░░░░░░░░░░░░░░░░░░` &nbsp; 2 / 8 milestones done |
-| **Format** | One write-up per milestone: what was built, a test matrix, failures and fixes, and a "what I learned" |
-| **Scope** | Everything runs isolated in VirtualBox — every test targets machines inside this lab only |
+| 🧱 **Stack** | OPNsense · Active Directory (Windows Server 2022) · Windows 10 · Kali Linux · Oracle VirtualBox |
+| 🗺️ **Shape** | 1 firewall · 3 internal zones (SERVERS / USERS / ADMIN) · 1 WAN where the attacker sits |
+| 📈 **Progress** | `██████░░░░░░░░░░░░░░` 2 / 8 milestones done |
+| 📝 **Format** | One write-up per milestone — build, test matrix, failures/fixes, lessons learned |
+| 🔒 **Scope** | Fully isolated in VirtualBox — every attack and defense targets this lab only |
 
-## Milestones
+## 🏁 Milestones
 
-|  | Milestone | What it covers | Status |
+| | Milestone | Covers | Status |
 |---|---|---|---|
-| **M1** | [Segmented network](network-security/milestones/M1-segmented-network.md) | OPNsense firewall, three zones, routing, DHCP relay | ✅ **Done** |
-| **M2** | [Baseline attack pass](network-security/milestones/M2-baseline-attacks.md) | Attack the allow-all network and record what succeeds | ✅ **Done** |
-| **M3** | Firewall policy | Default-deny + explicit Active Directory allow rules; management GUI from ADMIN only | 🔜 **Next** |
-| **M4** | AD / DC hardening | Password & lockout policy, admin-account separation, legacy protocols off, audit logging | ⬜ Planned |
-| **M5** | Detection | One free, open-source detection system | ⬜ Planned |
-| **M6** | Attack & defend | Repeat the M2 attacks plus privilege escalation, then compare before and after | ⬜ Planned |
-| **M7** | Zero Trust | Least privilege per user and application, no implicit trust between zones | ⬜ Planned |
-| **M8** | Packaging | Final README, diagram, and lessons learned | ⬜ Planned |
+| 🧩 | [**M1 — Segmented network**](network-security/milestones/M1-segmented-network.md) | OPNsense firewall, three zones, routing, DHCP relay | ✅ Done |
+| ⚔️ | [**M2 — Baseline attack pass**](network-security/milestones/M2-baseline-attacks.md) | Attack the allow-all network, record what succeeds | ✅ Done |
+| 🧱 | **M3 — Firewall policy** | Default-deny + explicit AD allow rules, mgmt GUI from ADMIN only | 🔜 Next |
+| 🔐 | **M4 — AD / DC hardening** | Password & lockout policy, admin separation, legacy protocols off, audit logging | ⬜ Planned |
+| 👁️ | **M5 — Detection** | One free, open-source detection system | ⬜ Planned |
+| 🔁 | **M6 — Attack & defend** | Re-run M2's attacks + privilege escalation, before/after comparison | ⬜ Planned |
+| 🚫 | **M7 — Zero Trust** | Least privilege per user/app, no implicit trust between zones | ⬜ Planned |
+| 📦 | **M8 — Packaging** | Final README, diagram, lessons learned | ⬜ Planned |
 
-*Planned milestones aren't started yet — each gets linked here once it has content.*
+*Planned milestones link here once they have content.*
 
-## The lab today
-
-*Last updated: 2026/10/23*
+## 🗺️ The lab today
 
 ![Milestone 1 network topology: an OPNsense firewall connecting a WAN with a Kali machine to three zones: SERVERS (domain controller), USERS (employee workstation) and ADMIN (technician workstation)](network-security/images/m1-topology.png)
+
+```mermaid
+flowchart LR
+    WAN["🌐 WAN · extnet<br/>10.0.99.0/24<br/>Kali — attacker"]
+    FW["🛡️ OPNsense firewall"]
+    SRV["🗄️ SERVERS · 10.10.10.0/24<br/>win2k22-DC01 — AD DS · DNS · DHCP"]
+    USR["💻 USERS · 10.10.20.0/24<br/>win10-client01 — employee workstation"]
+    ADM["🔧 ADMIN · 10.10.30.0/24<br/>win10-tech01 — technician workstation"]
+
+    WAN --> FW
+    FW --> SRV
+    FW --> USR
+    FW --> ADM
+```
 
 <details>
 <summary><strong>How it fits together</strong></summary>
 
 <br>
 
-An OPNsense firewall sits between three internal zones (SERVERS, USERS, ADMIN) and a WAN where a Kali machine sits for attack scenarios. The domain controller — Active Directory, DNS, DHCP — lives in SERVERS. Workstations in USERS and ADMIN get their addresses from it through a DHCP relay on the firewall (OPNsense's own DHCP server is off). The lab reuses an earlier Windows domain lab of mine as the SERVERS zone.
+The domain controller (AD, DNS, DHCP) lives in SERVERS. Workstations in USERS and ADMIN get their addresses from it through a DHCP relay on the firewall — OPNsense's own DHCP server is off. The lab reuses an earlier Windows domain lab of mine as the SERVERS zone.
 
-In **M1** the rules between zones are allow-all; **M3** replaces that with default-deny plus explicit allow rules.
+In **M1** the inter-zone rules are allow-all; **M3** replaces that with default-deny plus explicit allow rules, informed directly by what M2's attack pass found open.
 
 | Zone | Interface | Subnet | Host |
 |---|---|---|---|
-| **WAN** | em0 (extnet) | 10.0.99.0/24 | Kali — attacker, outside scenarios |
-| **SERVERS** | em1 | 10.10.10.0/24 | `win2k22-DC01` — AD DS · DNS · DHCP · `lab.local` |
-| **USERS** | em2 | 10.10.20.0/24 | `win10-client01` — employee workstation, domain-joined |
-| **ADMIN** | em3 | 10.10.30.0/24 | `win10-tech01` — technician workstation, domain-joined |
+| WAN | em0 (extnet) | 10.0.99.0/24 | Kali — attacker, outside scenarios |
+| SERVERS | em1 | 10.10.10.0/24 | `win2k22-DC01` — AD DS · DNS · DHCP · `lab.local` |
+| USERS | em2 | 10.10.20.0/24 | `win10-client01` — employee workstation, domain-joined |
+| ADMIN | em3 | 10.10.30.0/24 | `win10-tech01` — technician workstation, domain-joined |
 
 </details>
 
-## Scope & safety
+## 🔒 Scope & safety
 
 > [!IMPORTANT]
-> Everything runs inside VirtualBox, isolated from my home network. Every attack and defense exercise targets only machines inside this lab.
+> Everything runs inside VirtualBox, isolated from my home network. Every attack and defense exercise in this repo targets only machines inside this lab.
+
+---
+
+<div align="center">
+
+🧱 *Building it, breaking it, writing down what happens either way.*
+
+</div>
