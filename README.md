@@ -9,7 +9,7 @@
 ![Kali](https://img.shields.io/badge/Kali%20Linux-attacker%20box-informational?style=flat-square&logo=kalilinux&logoColor=white&color=557C94)
 ![VirtualBox](https://img.shields.io/badge/Oracle%20VirtualBox-isolated%20lab-informational?style=flat-square&logo=virtualbox&logoColor=white&color=183A61)
 
-![Progress](https://img.shields.io/badge/progress-2%20of%208%20milestones-2da44e?style=flat-square)
+![Progress](https://img.shields.io/badge/progress-3%20of%208%20milestones-2da44e?style=flat-square)
 ![Scope](https://img.shields.io/badge/scope-isolated%20virtual%20network-6f42c1?style=flat-square)
 ![Updated](https://img.shields.io/badge/updated-2026--10--23-lightgrey?style=flat-square)
 
@@ -32,7 +32,7 @@ I put a firewall in front of an Active Directory network, split it into security
 |---|---|
 | 🧱 **Stack** | OPNsense · Active Directory (Windows Server 2022) · Windows 10 · Kali Linux · Oracle VirtualBox |
 | 🗺️ **Shape** | 1 firewall · 3 internal zones (SERVERS / USERS / ADMIN) · 1 WAN where the attacker sits |
-| 📈 **Progress** | `██████░░░░░░░░░░░░░░` 2 / 8 milestones done |
+| 📈 **Progress** | `████████░░░░░░░░░░░░` 3 / 8 milestones done |
 | 📝 **Format** | One write-up per milestone — build, test matrix, failures/fixes, lessons learned |
 | 🔒 **Scope** | Fully isolated in VirtualBox — every attack and defense targets this lab only |
 
@@ -42,7 +42,7 @@ I put a firewall in front of an Active Directory network, split it into security
 |---|---|---|---|
 | 🧩 | [**M1 — Segmented network**](network-security/milestones/M1-segmented-network.md) | OPNsense firewall, three zones, routing, DHCP relay | ✅ Done |
 | ⚔️ | [**M2 — Baseline attack pass**](network-security/milestones/M2-baseline-attacks.md) | Attack the allow-all network, record what succeeds | ✅ Done |
-| 🧱 | **M3 — Firewall policy** | Default-deny + explicit AD allow rules, mgmt GUI from ADMIN only | 🔜 Next |
+| 🧱 | [**M3 — Network hardening**](network-security/milestones/M3-hardening.md) | Default-deny + explicit AD allow rules, mgmt GUI from ADMIN only, GPO hardening | ✅ Done |
 | 🔐 | **M4 — AD / DC hardening** | Password & lockout policy, admin separation, legacy protocols off, audit logging | ⬜ Planned |
 | 👁️ | **M5 — Detection** | One free, open-source detection system | ⬜ Planned |
 | 🔁 | **M6 — Attack & defend** | Re-run M2's attacks + privilege escalation, before/after comparison | ⬜ Planned |
