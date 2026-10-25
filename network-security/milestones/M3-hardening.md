@@ -126,13 +126,6 @@ Fixed by adding one rule per interface: ADMIN network → the firewall's own ADM
 TCP 443. This rule turned out to be a necessary prerequisite for Step 5 (GUI restriction)
 as well, so finding it before that step avoided a second, overlapping lockout.
 
-**Failure 2 — OPT2 rule source misconfiguration.** One rule in the initial OPT2 build
-(LDAP, port 389) was set with Source = "OPT2 address" (the firewall's own single IP)
-instead of "OPT2 network" (the full ADMIN subnet). This would have silently excluded all
-LDAP traffic from actual ADMIN-zone hosts while appearing correct in a cursory glance at
-the rule list. Caught during a field-by-field review before the ruleset was applied, and
-corrected before any client was affected.
-
 **Lesson, not a technical failure — testing methodology.** Verifying SMB connectivity
 after the signing-enforcement GPO change took longer than it should have, because the
 first test account used (not one of the M2 test users, but a separate pre-existing account)
