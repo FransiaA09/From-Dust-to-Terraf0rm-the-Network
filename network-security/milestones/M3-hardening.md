@@ -97,7 +97,7 @@ present) matches the intended outcome regardless.
 | # | Test | Expected | Actual | Result |
 |---|---|---|---|---|
 | T1 | `win10-client01` (USERS) domain logon / `gpupdate /force` after OPT1 rule apply | Succeeds | Succeeded, no errors | Pass |
-| T2 | `win10-tech01` (ADMIN) domain logon / `gpupdate /force` after OPT2 rule apply | Succeeds | Succeeded, no errors (after fixing a Source misconfiguration on one rule — see Failures) | Pass |
+| T2 | `win10-tech01` (ADMIN) domain logon / `gpupdate /force` after OPT2 rule apply | Succeeds | Succeeded, no errors | Pass |
 | T3 | OPNsense GUI reachable from `win10-tech01` via `https://10.10.30.1` (ADMIN's own address) | Succeeds | Succeeded after adding the GUI-access rule | Pass |
 | T4 | OPNsense GUI reachable via `https://10.10.10.1` (SERVERS address) from ADMIN | Fails (no rule permits this) | Failed — blocked, confirmed in firewall log | Pass |
 | T5 | Listen Interfaces restricted — GUI unreachable from SERVERS (`https://10.10.10.1` from the DC's own browser) | Fails (connection timeout) | Failed exactly as expected — `ERR_CONNECTION_TIMED_OUT` | Pass |
