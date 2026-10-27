@@ -53,8 +53,6 @@ I put a firewall in front of an Active Directory network, split it into security
 
 ## 🗺️ The lab today
 
-![Milestone 1 network topology: an OPNsense firewall connecting a WAN with a Kali machine to three zones: SERVERS (domain controller), USERS (employee workstation) and ADMIN (technician workstation)](network-security/images/m1-topology.png)
-
 ![Lab Network — Zone Overview](network-security/images/lab-network-overview.svg)
 
 <details>
@@ -64,16 +62,16 @@ I put a firewall in front of an Active Directory network, split it into security
 
 The domain controller (AD, DNS, DHCP) lives in SERVERS. Workstations in USERS and ADMIN get their addresses from it through a DHCP relay on the firewall — OPNsense's own DHCP server is off. The lab reuses an earlier Windows domain lab of mine as the SERVERS zone.
 
-The topology above is the M1 build, where inter-zone rules were allow-all. **M3** replaced that with default-deny plus explicit allow rules, informed directly by what M2's attack pass found open. **M4** then hardened accounts and auditing inside the domain:
+The diagram above shows the current design. In M1 the inter-zone rules were allow-all; **M3** replaced that with default-deny plus explicit allow rules, informed directly by what M2's attack pass found open. **M4** then hardened accounts and auditing inside the domain:
 
 ![M4 hardening overview: controls added per zone across M1–M4, with the events that verified them](network-security/images/m4-hardening-overview.svg)
 
-| Zone | Interface | Subnet | Host |
-|---|---|---|---|
-| WAN | em0 (extnet) | 10.0.99.0/24 | Kali — attacker, outside scenarios |
-| SERVERS | em1 | 10.10.10.0/24 | `win2k22-DC01` — AD DS · DNS · DHCP · `lab.local` |
-| USERS | em2 | 10.10.20.0/24 | `win10-client01` — employee workstation, domain-joined |
-| ADMIN | em3 | 10.10.30.0/24 | `win10-tech01` — technician workstation, domain-joined |
+| Zone | Host |
+|---|---|
+| WAN | Kali — attacker, outside scenarios |
+| SERVERS | `win2k22-DC01` — AD DS · DNS · DHCP · `lab.local` |
+| USERS | `win10-client01` — employee workstation, domain-joined |
+| ADMIN | `win10-tech01` — technician workstation, domain-joined |
 
 </details>
 
