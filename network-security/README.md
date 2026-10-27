@@ -11,7 +11,8 @@ The goal of this area is to take the Windows domain lab and defend it like a sma
 3. Apply default-deny firewall rules with explicit Active Directory allow rules, and harden the domain.
 4. Add one free, open-source detection system.
 5. Repeat the attacks and compare before and after, including privilege-escalation attempts.
-6. Stretch goal: apply Zero Trust principles.
+6. Apply Zero Trust principles — least privilege per user/app, no implicit trust between
+   zones.
 
 ## Milestones
 

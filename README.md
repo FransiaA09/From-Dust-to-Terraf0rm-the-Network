@@ -26,6 +26,14 @@ I put a firewall in front of an Active Directory network, split it into security
 > [!NOTE]
 > This is a build log, not a tutorial. Mistakes are left in on purpose — the failures are as much the point as the wins.
 
+## 👤 About
+
+Hi, I'm **Aviv**. I'm building this lab to get real, hands-on experience in network
+security — segmenting a network, attacking my own build, and hardening it based on what
+the attacks find — while I get started in the field.
+
+📎 [LinkedIn](https://www.linkedin.com/in/aviv-fransia-255905328/)
+
 ## 📊 At a glance
 
 | | |
