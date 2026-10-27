@@ -9,9 +9,9 @@
 ![Kali](https://img.shields.io/badge/Kali%20Linux-attacker%20box-informational?style=flat-square&logo=kalilinux&logoColor=white&color=557C94)
 ![VirtualBox](https://img.shields.io/badge/Oracle%20VirtualBox-isolated%20lab-informational?style=flat-square&logo=virtualbox&logoColor=white&color=183A61)
 
-![Progress](https://img.shields.io/badge/progress-3%20of%208%20milestones-2da44e?style=flat-square)
+![Progress](https://img.shields.io/badge/progress-4%20of%208%20milestones-2da44e?style=flat-square)
 ![Scope](https://img.shields.io/badge/scope-isolated%20virtual%20network-6f42c1?style=flat-square)
-![Updated](https://img.shields.io/badge/updated-2026--10--23-lightgrey?style=flat-square)
+![Updated](https://img.shields.io/badge/updated-2026--10--27-lightgrey?style=flat-square)
 
 **[📋 Milestones](#-milestones) · [🗺️ Topology](#-the-lab-today) · [⚔️ Latest attack pass](network-security/milestones/M2-baseline-attacks.md) · [🔒 Scope & safety](#-scope--safety)**
 
@@ -32,7 +32,7 @@ I put a firewall in front of an Active Directory network, split it into security
 |---|---|
 | 🧱 **Stack** | OPNsense · Active Directory (Windows Server 2022) · Windows 10 · Kali Linux · Oracle VirtualBox |
 | 🗺️ **Shape** | 1 firewall · 3 internal zones (SERVERS / USERS / ADMIN) · 1 WAN where the attacker sits |
-| 📈 **Progress** | `████████░░░░░░░░░░░░` 3 / 8 milestones done |
+| 📈 **Progress** | `██████████░░░░░░░░░░` 4 / 8 milestones done |
 | 📝 **Format** | One write-up per milestone — build, test matrix, failures/fixes, lessons learned |
 | 🔒 **Scope** | Fully isolated in VirtualBox — every attack and defense targets this lab only |
 
@@ -43,7 +43,7 @@ I put a firewall in front of an Active Directory network, split it into security
 | 🧩 | [**M1 — Segmented network**](network-security/milestones/M1-segmented-network.md) | OPNsense firewall, three zones, routing, DHCP relay | ✅ Done |
 | ⚔️ | [**M2 — Baseline attack pass**](network-security/milestones/M2-baseline-attacks.md) | Attack the allow-all network, record what succeeds | ✅ Done |
 | 🧱 | [**M3 — Network hardening**](network-security/milestones/M3-hardening.md) | Default-deny + explicit AD allow rules, mgmt GUI from ADMIN only, GPO hardening | ✅ Done |
-| 🔐 | **M4 — AD / DC hardening** | Password & lockout policy, admin separation, legacy protocols off, audit logging | ⬜ Planned |
+| 🔐 | [**M4 — Account & audit hardening**](network-security/milestones/M4-ad-hardening.md) | Lockout policy, admin separation, NTLM audit-only, detection-oriented audit logging | ✅ Done |
 | 👁️ | **M5 — Detection** | One free, open-source detection system | ⬜ Planned |
 | 🔁 | **M6 — Attack & defend** | Re-run M2's attacks + privilege escalation, before/after comparison | ⬜ Planned |
 | 🚫 | **M7 — Zero Trust** | Least privilege per user/app, no implicit trust between zones | ⬜ Planned |
@@ -76,7 +76,9 @@ flowchart LR
 
 The domain controller (AD, DNS, DHCP) lives in SERVERS. Workstations in USERS and ADMIN get their addresses from it through a DHCP relay on the firewall — OPNsense's own DHCP server is off. The lab reuses an earlier Windows domain lab of mine as the SERVERS zone.
 
-In **M1** the inter-zone rules are allow-all; **M3** replaces that with default-deny plus explicit allow rules, informed directly by what M2's attack pass found open.
+The topology above is the M1 build, where inter-zone rules were allow-all. **M3** replaced that with default-deny plus explicit allow rules, informed directly by what M2's attack pass found open. **M4** then hardened accounts and auditing inside the domain:
+
+![M4 hardening overview: controls added per zone across M1–M4, with the events that verified them](network-security/images/m4-hardening-overview.svg)
 
 | Zone | Interface | Subnet | Host |
 |---|---|---|---|
