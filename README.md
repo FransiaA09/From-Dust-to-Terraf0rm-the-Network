@@ -55,19 +55,7 @@ I put a firewall in front of an Active Directory network, split it into security
 
 ![Milestone 1 network topology: an OPNsense firewall connecting a WAN with a Kali machine to three zones: SERVERS (domain controller), USERS (employee workstation) and ADMIN (technician workstation)](network-security/images/m1-topology.png)
 
-```mermaid
-flowchart LR
-    WAN["🌐 WAN · extnet<br/>10.0.99.0/24<br/>Kali — attacker"]
-    FW["🛡️ OPNsense firewall"]
-    SRV["🗄️ SERVERS · 10.10.10.0/24<br/>win2k22-DC01 — AD DS · DNS · DHCP"]
-    USR["💻 USERS · 10.10.20.0/24<br/>win10-client01 — employee workstation"]
-    ADM["🔧 ADMIN · 10.10.30.0/24<br/>win10-tech01 — technician workstation"]
-
-    WAN --> FW
-    FW --> SRV
-    FW --> USR
-    FW --> ADM
-```
+![Lab Network — Zone Overview](network-security/images/lab-network-overview.svg)
 
 <details>
 <summary><strong>How it fits together</strong></summary>
