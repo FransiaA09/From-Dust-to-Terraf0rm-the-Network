@@ -1,17 +1,15 @@
 <div align="center">
 
-# 🛡️ From Dust to Terraf0rm the Network
+<h1 align="center"><img src="network-security/images/readme/banner.svg" alt="🛡️ From Dust to Terraf0rm the Network. Home-lab network security build · segment → attack → harden → detect → repeat"></h1>
 
-**Home-lab network security build · segment → attack → harden → detect → repeat**
+![Stack](https://img.shields.io/badge/OPNsense-firewall-informational?style=flat-square&logo=opnsense&logoColor=white&color=475569&labelColor=0f172a)
+![AD](https://img.shields.io/badge/Active%20Directory-Windows%20Server%202022-informational?style=flat-square&logo=windows&logoColor=white&color=475569&labelColor=0f172a)
+![Kali](https://img.shields.io/badge/Kali%20Linux-attacker%20box-informational?style=flat-square&logo=kalilinux&logoColor=white&color=475569&labelColor=0f172a)
+![VirtualBox](https://img.shields.io/badge/Oracle%20VirtualBox-isolated%20lab-informational?style=flat-square&logo=virtualbox&logoColor=white&color=475569&labelColor=0f172a)
 
-![Stack](https://img.shields.io/badge/OPNsense-firewall-informational?style=flat-square&logo=opnsense&logoColor=white&color=2A5ADA)
-![AD](https://img.shields.io/badge/Active%20Directory-Windows%20Server%202022-informational?style=flat-square&logo=windows&logoColor=white&color=0078D4)
-![Kali](https://img.shields.io/badge/Kali%20Linux-attacker%20box-informational?style=flat-square&logo=kalilinux&logoColor=white&color=557C94)
-![VirtualBox](https://img.shields.io/badge/Oracle%20VirtualBox-isolated%20lab-informational?style=flat-square&logo=virtualbox&logoColor=white&color=183A61)
-
-![Progress](https://img.shields.io/badge/progress-4%20of%208%20milestones-2da44e?style=flat-square)
-![Scope](https://img.shields.io/badge/scope-isolated%20virtual%20network-6f42c1?style=flat-square)
-![Updated](https://img.shields.io/badge/updated-2026--10--27-lightgrey?style=flat-square)
+![Progress](https://img.shields.io/badge/progress-4%20of%208%20milestones-2da44e?style=flat-square&color=f5c531&labelColor=0f172a)
+![Scope](https://img.shields.io/badge/scope-isolated%20virtual%20network-6f42c1?style=flat-square&color=ea8c1e&labelColor=0f172a)
+![Updated](https://img.shields.io/badge/updated-2026--10--27-lightgrey?style=flat-square&color=475569&labelColor=0f172a)
 
 **[📋 Milestones](#-milestones) · [🗺️ Topology](#-the-lab-today) · [⚔️ Latest attack pass](network-security/milestones/M2-baseline-attacks.md) · [🔒 Scope & safety](#-scope--safety)**
 
