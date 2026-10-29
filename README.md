@@ -1,23 +1,21 @@
 <div align="center">
 
-# 🛡️ From Dust to Terraf0rm the Network
+<h1 align="center"><img src="network-security/images/readme/banner.svg" alt="🛡️ From Dust to Terraf0rm the Network. Home-lab network security build · segment → attack → harden → detect → repeat"></h1>
 
-**Home-lab network security build · segment → attack → harden → detect → repeat**
+![Stack](https://img.shields.io/badge/OPNsense-firewall-informational?style=flat-square&logo=opnsense&logoColor=white&color=475569&labelColor=0f172a)
+![AD](https://img.shields.io/badge/Active%20Directory-Windows%20Server%202022-informational?style=flat-square&logo=windows&logoColor=white&color=475569&labelColor=0f172a)
+![Kali](https://img.shields.io/badge/Kali%20Linux-attacker%20box-informational?style=flat-square&logo=kalilinux&logoColor=white&color=475569&labelColor=0f172a)
+![VirtualBox](https://img.shields.io/badge/Oracle%20VirtualBox-isolated%20lab-informational?style=flat-square&logo=virtualbox&logoColor=white&color=475569&labelColor=0f172a)
 
-![Stack](https://img.shields.io/badge/OPNsense-firewall-informational?style=flat-square&logo=opnsense&logoColor=white&color=2A5ADA)
-![AD](https://img.shields.io/badge/Active%20Directory-Windows%20Server%202022-informational?style=flat-square&logo=windows&logoColor=white&color=0078D4)
-![Kali](https://img.shields.io/badge/Kali%20Linux-attacker%20box-informational?style=flat-square&logo=kalilinux&logoColor=white&color=557C94)
-![VirtualBox](https://img.shields.io/badge/Oracle%20VirtualBox-isolated%20lab-informational?style=flat-square&logo=virtualbox&logoColor=white&color=183A61)
-
-![Progress](https://img.shields.io/badge/progress-4%20of%208%20milestones-2da44e?style=flat-square)
-![Scope](https://img.shields.io/badge/scope-isolated%20virtual%20network-6f42c1?style=flat-square)
-![Updated](https://img.shields.io/badge/updated-2026--10--27-lightgrey?style=flat-square)
+![Progress](https://img.shields.io/badge/progress-4%20of%208%20milestones-2da44e?style=flat-square&color=f5c531&labelColor=0f172a)
+![Scope](https://img.shields.io/badge/scope-isolated%20virtual%20network-6f42c1?style=flat-square&color=f5c531&labelColor=0f172a)
+![Updated](https://img.shields.io/badge/updated-2026--10--27-lightgrey?style=flat-square&color=475569&labelColor=0f172a)
 
 **[📋 Milestones](#-milestones) · [🗺️ Topology](#-the-lab-today) · [⚔️ Latest attack pass](network-security/milestones/M2-baseline-attacks.md) · [🔒 Scope & safety](#-scope--safety)**
 
 </div>
 
----
+<div align="center"><img src="network-security/images/readme/divider.svg" alt=""></div>
 
 ## 👋 What this is
 
@@ -36,11 +34,11 @@ the attacks find — while I get started in the field.
 
 ## 📊 At a glance
 
+<div align="center"><img src="network-security/images/readme/at-a-glance.svg" alt="4 of 8 milestones done. 3 internal security zones. 1 firewall (OPNsense)."></div>
+
 | | |
 |---|---|
 | 🧱 **Stack** | OPNsense · Active Directory (Windows Server 2022) · Windows 10 · Kali Linux · Oracle VirtualBox |
-| 🗺️ **Shape** | 1 firewall · 3 internal zones (SERVERS / USERS / ADMIN) · 1 WAN where the attacker sits |
-| 📈 **Progress** | `██████████░░░░░░░░░░` 4 / 8 milestones done |
 | 📝 **Format** | One write-up per milestone — build, test matrix, failures/fixes, lessons learned |
 | 🔒 **Scope** | Fully isolated in VirtualBox — every attack and defense targets this lab only |
 
@@ -48,14 +46,16 @@ the attacks find — while I get started in the field.
 
 | | Milestone | Covers | Status |
 |---|---|---|---|
-| 🧩 | [**M1 — Segmented network**](network-security/milestones/M1-segmented-network.md) | OPNsense firewall, three zones, routing, DHCP relay | ✅ Done |
-| ⚔️ | [**M2 — Baseline attack pass**](network-security/milestones/M2-baseline-attacks.md) | Attack the allow-all network, record what succeeds | ✅ Done |
-| 🧱 | [**M3 — Network hardening**](network-security/milestones/M3-hardening.md) | Default-deny + explicit AD allow rules, mgmt GUI from ADMIN only, GPO hardening | ✅ Done |
-| 🔐 | [**M4 — Account & audit hardening**](network-security/milestones/M4-ad-hardening.md) | Lockout policy, admin separation, NTLM audit-only, detection-oriented audit logging | ✅ Done |
-| 👁️ | **M5 — Detection** | One free, open-source detection system | ⬜ Planned |
-| 🔁 | **M6 — Attack & defend** | Re-run M2's attacks + privilege escalation, before/after comparison | ⬜ Planned |
-| 🚫 | **M7 — Zero Trust** | Least privilege per user/app, no implicit trust between zones | ⬜ Planned |
-| 📦 | **M8 — Packaging** | Final README, diagram, lessons learned | ⬜ Planned |
+| 🧩 | [**M1 — Segmented network**](network-security/milestones/M1-segmented-network.md) | OPNsense firewall, three zones, routing, DHCP relay | <img src="network-security/images/readme/pill-done.svg" alt="Done" width="90" height="24"> |
+| ⚔️ | [**M2 — Baseline attack pass**](network-security/milestones/M2-baseline-attacks.md) | Attack the allow-all network, record what succeeds | <img src="network-security/images/readme/pill-done.svg" alt="Done" width="90" height="24"> |
+| 🧱 | [**M3 — Network hardening**](network-security/milestones/M3-hardening.md) | Default-deny + explicit AD allow rules, mgmt GUI from ADMIN only, GPO hardening | <img src="network-security/images/readme/pill-done.svg" alt="Done" width="90" height="24"> |
+| 🔐 | [**M4 — Account & audit hardening**](network-security/milestones/M4-ad-hardening.md) | Lockout policy, admin separation, NTLM audit-only, detection-oriented audit logging | <img src="network-security/images/readme/pill-done.svg" alt="Done" width="90" height="24"> |
+| 👁️ | **M5 — Detection** | One free, open-source detection system | <img src="network-security/images/readme/pill-planned.svg" alt="Planned" width="90" height="24"> |
+| 🔁 | **M6 — Attack & defend** | Re-run M2's attacks + privilege escalation, before/after comparison | <img src="network-security/images/readme/pill-planned.svg" alt="Planned" width="90" height="24"> |
+| 🚫 | **M7 — Zero Trust** | Least privilege per user/app, no implicit trust between zones | <img src="network-security/images/readme/pill-planned.svg" alt="Planned" width="90" height="24"> |
+| 📦 | **M8 — Packaging** | Final README, diagram, lessons learned | <img src="network-security/images/readme/pill-planned.svg" alt="Planned" width="90" height="24"> |
+
+<div align="center"><img src="network-security/images/readme/legend.svg" alt="Legend: gold means Done, gray means Planned."></div>
 
 *Planned milestones link here once they have content.*
 
@@ -88,7 +88,7 @@ The diagram above shows the current design. In M1 the inter-zone rules were allo
 > [!IMPORTANT]
 > Everything runs inside VirtualBox, isolated from my home network. Every attack and defense exercise in this repo targets only machines inside this lab.
 
----
+<div align="center"><img src="network-security/images/readme/divider.svg" alt=""></div>
 
 <div align="center">
 

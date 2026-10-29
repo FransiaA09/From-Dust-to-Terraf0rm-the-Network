@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="110" viewBox="0 0 800 110" font-family="'Inter', -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <defs>
+    <clipPath id="card1"><rect x="0" y="0" width="256" height="110" rx="4"/></clipPath>
+    <clipPath id="card2"><rect x="272" y="0" width="256" height="110" rx="4"/></clipPath>
+    <clipPath id="card3"><rect x="544" y="0" width="256" height="110" rx="4"/></clipPath>
+  </defs>
+  <rect x="0" y="0" width="800" height="110" fill="#ffffff"/>
+
+  <g clip-path="url(#card1)">
+    <rect x="0" y="0" width="256" height="72" fill="#f5c531"/>
+    <rect x="0" y="72" width="256" height="38" fill="#f0f3f6"/>
+  </g>
+  <text x="128" y="48" text-anchor="middle" font-size="34" font-weight="800" letter-spacing="-0.68" fill="#0f172a">4 / 8</text>
+  <text x="128" y="96" text-anchor="middle" font-size="13" font-weight="600" fill="#475569">Milestones done</text>
+
+  <g clip-path="url(#card2)">
+    <rect x="272" y="0" width="256" height="72" fill="#f5c531"/>
+    <rect x="272" y="72" width="256" height="38" fill="#f0f3f6"/>
+  </g>
+  <text x="400" y="48" text-anchor="middle" font-size="34" font-weight="800" letter-spacing="-0.68" fill="#0f172a">3</text>
+  <text x="400" y="96" text-anchor="middle" font-size="13" font-weight="600" fill="#475569">Internal security zones</text>
+
+  <g clip-path="url(#card3)">
+    <rect x="544" y="0" width="256" height="72" fill="#f5c531"/>
+    <rect x="544" y="72" width="256" height="38" fill="#f0f3f6"/>
+  </g>
+  <text x="672" y="48" text-anchor="middle" font-size="34" font-weight="800" letter-spacing="-0.68" fill="#0f172a">1</text>
+  <text x="672" y="96" text-anchor="middle" font-size="13" font-weight="600" fill="#475569">Firewall (OPNsense)</text>
+</svg>
