@@ -46,14 +46,16 @@ the attacks find — while I get started in the field.
 
 | | Milestone | Covers | Status |
 |---|---|---|---|
-| 🧩 | [**M1 — Segmented network**](network-security/milestones/M1-segmented-network.md) | OPNsense firewall, three zones, routing, DHCP relay | ✅ Done |
-| ⚔️ | [**M2 — Baseline attack pass**](network-security/milestones/M2-baseline-attacks.md) | Attack the allow-all network, record what succeeds | ✅ Done |
-| 🧱 | [**M3 — Network hardening**](network-security/milestones/M3-hardening.md) | Default-deny + explicit AD allow rules, mgmt GUI from ADMIN only, GPO hardening | ✅ Done |
-| 🔐 | [**M4 — Account & audit hardening**](network-security/milestones/M4-ad-hardening.md) | Lockout policy, admin separation, NTLM audit-only, detection-oriented audit logging | ✅ Done |
-| 👁️ | **M5 — Detection** | One free, open-source detection system | ⬜ Planned |
-| 🔁 | **M6 — Attack & defend** | Re-run M2's attacks + privilege escalation, before/after comparison | ⬜ Planned |
-| 🚫 | **M7 — Zero Trust** | Least privilege per user/app, no implicit trust between zones | ⬜ Planned |
-| 📦 | **M8 — Packaging** | Final README, diagram, lessons learned | ⬜ Planned |
+| 🧩 | [**M1 — Segmented network**](network-security/milestones/M1-segmented-network.md) | OPNsense firewall, three zones, routing, DHCP relay | <img src="network-security/images/readme/pill-done.svg" alt="Done" width="90" height="24"> |
+| ⚔️ | [**M2 — Baseline attack pass**](network-security/milestones/M2-baseline-attacks.md) | Attack the allow-all network, record what succeeds | <img src="network-security/images/readme/pill-done.svg" alt="Done" width="90" height="24"> |
+| 🧱 | [**M3 — Network hardening**](network-security/milestones/M3-hardening.md) | Default-deny + explicit AD allow rules, mgmt GUI from ADMIN only, GPO hardening | <img src="network-security/images/readme/pill-done.svg" alt="Done" width="90" height="24"> |
+| 🔐 | [**M4 — Account & audit hardening**](network-security/milestones/M4-ad-hardening.md) | Lockout policy, admin separation, NTLM audit-only, detection-oriented audit logging | <img src="network-security/images/readme/pill-done.svg" alt="Done" width="90" height="24"> |
+| 👁️ | **M5 — Detection** | One free, open-source detection system | <img src="network-security/images/readme/pill-planned.svg" alt="Planned" width="90" height="24"> |
+| 🔁 | **M6 — Attack & defend** | Re-run M2's attacks + privilege escalation, before/after comparison | <img src="network-security/images/readme/pill-planned.svg" alt="Planned" width="90" height="24"> |
+| 🚫 | **M7 — Zero Trust** | Least privilege per user/app, no implicit trust between zones | <img src="network-security/images/readme/pill-planned.svg" alt="Planned" width="90" height="24"> |
+| 📦 | **M8 — Packaging** | Final README, diagram, lessons learned | <img src="network-security/images/readme/pill-planned.svg" alt="Planned" width="90" height="24"> |
+
+<div align="center"><img src="network-security/images/readme/legend.svg" alt="Legend: gold means Done, gray means Planned."></div>
 
 *Planned milestones link here once they have content.*
 
