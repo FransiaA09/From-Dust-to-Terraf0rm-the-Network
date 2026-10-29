@@ -34,11 +34,11 @@ the attacks find — while I get started in the field.
 
 ## 📊 At a glance
 
+<div align="center"><img src="network-security/images/readme/at-a-glance.svg" alt="4 of 8 milestones done. 3 internal security zones. 1 firewall (OPNsense)."></div>
+
 | | |
 |---|---|
 | 🧱 **Stack** | OPNsense · Active Directory (Windows Server 2022) · Windows 10 · Kali Linux · Oracle VirtualBox |
-| 🗺️ **Shape** | 1 firewall · 3 internal zones (SERVERS / USERS / ADMIN) · 1 WAN where the attacker sits |
-| 📈 **Progress** | `██████████░░░░░░░░░░` 4 / 8 milestones done |
 | 📝 **Format** | One write-up per milestone — build, test matrix, failures/fixes, lessons learned |
 | 🔒 **Scope** | Fully isolated in VirtualBox — every attack and defense targets this lab only |
 
