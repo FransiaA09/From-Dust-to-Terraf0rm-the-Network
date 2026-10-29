@@ -15,7 +15,7 @@
 
 </div>
 
----
+<div align="center"><img src="network-security/images/readme/divider.svg" alt=""></div>
 
 ## 👋 What this is
 
@@ -86,7 +86,7 @@ The diagram above shows the current design. In M1 the inter-zone rules were allo
 > [!IMPORTANT]
 > Everything runs inside VirtualBox, isolated from my home network. Every attack and defense exercise in this repo targets only machines inside this lab.
 
----
+<div align="center"><img src="network-security/images/readme/divider.svg" alt=""></div>
 
 <div align="center">
 
