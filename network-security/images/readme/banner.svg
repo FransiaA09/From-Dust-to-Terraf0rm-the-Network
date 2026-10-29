@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="200" viewBox="0 0 800 200" font-family="'Inter', -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <defs>
+    <linearGradient id="header" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f7be2d"/>
+      <stop offset="0.25" stop-color="#ffde6b"/>
+      <stop offset="1" stop-color="#ffffff"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="800" height="200" fill="#ffffff"/>
+  <rect x="0" y="0" width="800" height="200" fill="url(#header)"/>
+  <text x="32" y="70" font-size="40" font-weight="900" letter-spacing="-0.8" fill="#0f172a">FROM DUST TO TERRAF0RM</text>
+  <text x="32" y="114" font-size="40" font-weight="900" letter-spacing="-0.8" fill="#0f172a">THE NETWORK</text>
+  <text x="32" y="152" font-size="14" font-weight="500" fill="#0f172a">Home-lab network security build · segment → attack → harden → detect → repeat</text>
+</svg>
